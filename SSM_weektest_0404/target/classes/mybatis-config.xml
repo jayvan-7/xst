@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 系统配置 -->
+    <settings>
+        <!-- 配置log4j日志文件 -->
+        <setting name="logImpl" value="LOG4J"/>
+		 <!-- 配置自动映射的级别 -->
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+	
+	 <!-- 为实体类起别名 -->
+    <typeAliases>
+        <typeAlias alias="Contact" type="com.zb.entity.Contact"/>
+    </typeAliases>
+
+
+    <!-- 配置mapper映射SQL文件 -->
+    <mappers>
+        <mapper resource="mapper/ContactMapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>

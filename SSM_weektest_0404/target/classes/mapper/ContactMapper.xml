@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.mapper.ContactMapper">
+	<select id="findContactPage" resultType="Contact">
+			SELECT *FROM contact WHERE 1=1 
+			<if test="cname!=null and cname!=''">
+				and cname like concat ('%',#{cname},'%')
+			</if>
+			LIMIT #{index},#{size}
+	</select>
+	
+	<select id="findCount" resultType="int">
+		SELECT COUNT(1)FROM contact WHERE 1=1
+		<if test="cname!=null and cname!=''">
+				and cname like concat ('%',#{cname},'%')
+			</if>
+	</select>
+	
+	<select id="findContactByid" resultType="Contact">
+		SELECT *FROM contact WHERE id=#{id}
+	</select>
+	
+	<insert id="insertContact" parameterType="Contact">
+		INSERT INTO contact VALUES(NULL,#{cname},#{mobile},#{qq},#{email},#{address})
+	</insert>
+	
+	<update id="updateContact" parameterType="Contact">
+		UPDATE contact
+		<set>
+			<if test="cname!=null and cname!=''">
+				cname=#{cname},
+			</if>
+			<if test="mobile!=null and mobile!=''">
+				mobile=#{mobile},
+			</if>
+			<if test="qq!=null and qq!=''">
+				qq=#{qq},
+			</if>
+			<if test="email!=null and email!=''">
+				email=#{email},
+			</if>
+			<if test="address!=null and address!=''">
+				address=#{address}
+			</if>
+		</set>		
+		where id=#{id}
+		
+	</update>
+	
+
+</mapper>
