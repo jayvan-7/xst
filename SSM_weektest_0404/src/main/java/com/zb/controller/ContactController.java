@@ -15,8 +15,8 @@ import com.zb.util.PageUtil;
 public class ContactController {
 	@Autowired
 	private ContactService contactService;
-	
-	//·ÖÒ³+Ìõ¼ş²éÑ¯
+	//æ¥è‡ªç‹æ·‘å©·çš„ä¿®æ”¹
+	//ï¿½ï¿½Ò³+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
 	@RequestMapping(value="findpage")
 	@ResponseBody
 	public String findContactPage(String cname,Integer index){
@@ -25,14 +25,14 @@ public class ContactController {
 		return JSON.toJSONString(page);
 	}
 	
-	//²éÑ¯Ö¸¶¨ĞÅÏ¢
+	//ï¿½ï¿½Ñ¯Ö¸ï¿½ï¿½ï¿½ï¿½Ï¢
 	@RequestMapping(value="findByid")
 	@ResponseBody
 	public String findContactByid(Integer id){
 		return JSON.toJSONString(contactService.findContactByid(id));
 	}
 	
-	//Ôö¼Ó
+	//ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="addContact")
 	@ResponseBody
 	public String insertContact(Contact contact){
@@ -44,7 +44,7 @@ public class ContactController {
 		}
 	}
 	
-	//ĞŞ¸Ä
+	//ï¿½Ş¸ï¿½
 	@RequestMapping(value="updateContact")
 	@ResponseBody
 	public String updateContact(Contact contact){
