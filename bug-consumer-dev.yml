@@ -29,4 +29,4 @@ feign:
 management:
   security:
     enabled: false
-token: asssa123
+token: lovexst
